@@ -3,14 +3,14 @@
 from setuptools import setup, find_packages
 
 setup(
-  name = 'thumbor_rewrite_loader',
-  version = '0.9.1',
-  description = 'Thumbor HTTP loader which rewrites matches from a list with a single canonical domain.',
-  author = 'Jason Ormand',
-  author_email = 'jason.ormand@voxmedia.com',
+  name='thumbor_rewrite_loader',
+  version='0.9.1',
+  description='Thumbor HTTP loader that rewrites matches from a list with a single canonical domain.',
+  author='Jason Ormand',
+  author_email='jason.ormand@voxmedia.com',
   url="https://github.com/voxmedia/thumbor_rewrite_loader",
-  zip_safe = True,
-  include_package_data = True,
+  zip_safe=True,
+  include_package_data=True,
   packages=find_packages(),
   classifiers=[
       'Development Status :: 3 - Alpha',

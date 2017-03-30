@@ -14,22 +14,22 @@ from thumbor.loaders import http_loader
 from tornado.concurrent import return_future
 
 def _normalize_url(url):
-    url = http_loader.quote_url(url)
+  url = http_loader.quote_url(url)
     return url if url.startswith('http') else 'http://%s' % url
 
 
 def validate(context, url):
-    return http_loader.validate(context, url, normalize_url_func=_normalize_url)
+  return http_loader.validate(context, url, normalize_url_func=_normalize_url)
 
 
 def return_contents(response, url, callback, context):
-    return http_loader.return_contents(response, url, callback, context)
+  return http_loader.return_contents(response, url, callback, context)
 
 
 @return_future
 def load(context, url, callback):
-    if context.config.REWRITE_LOADER_HOST_PATTERNS:
-      parsed_url = urlparse(_normalize_url(url))
+  if context.config.REWRITE_LOADER_HOST_PATTERNS:
+    parsed_url = urlparse(_normalize_url(url))
       for pattern in context.config.REWRITE_LOADER_HOST_PATTERNS:
         if re.match('^%s$' % pattern, parsed_url.hostname):
           url = re.sub(pattern, context.config.REWRITE_LOADER_CANONICAL_HOST, url, 1)
@@ -38,4 +38,4 @@ def load(context, url, callback):
 
 
 def encode(string):
-    return http_loader.encode(string)
+  return http_loader.encode(string)
